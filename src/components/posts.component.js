@@ -23,13 +23,12 @@ export class PostsComponent extends Component{
                 let id = el.getAttribute('id')
                 singlePost.searchPost(id, renderPosts, this)
             }
-
         })
     }
 }
 
 function renderPosts() {
-    let posts = JSON.parse(localStorage.getItem('posts'))
+    let posts = JSON.parse(localStorage.getItem('posts')).reverse()
 
     posts = posts.map(post => {
         let status = post.isFinished ? 

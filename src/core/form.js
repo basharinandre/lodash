@@ -34,8 +34,9 @@ export class Form {
                             this.controls[control][0] : null
 
             let isValid = true
-            isValid = validator(this.controlsNode[control].value)
+            isValid = validator(this.controlsNode[control].value) && isValid
 
+            console.log('isValid', isValid)
             isValid ? clearError.call(this, control) : errorField.call(this, control)
 
             isFormValid = isFormValid && isValid
@@ -55,7 +56,7 @@ export class Form {
 
 function errorField($control) {
     let invalidControl = this.form.querySelector(`[name='${$control}']`)
-    invalidControl.nextSibling.textContent = ''
+    invalidControl.nextSibling ? invalidControl.nextSibling.textContent = '' : ''
 
     let errorMessage = '<p class="paragraph-error">Введите корректное значение</p>'
     this.controlsNode[$control].insertAdjacentHTML('afterend', errorMessage)
@@ -63,5 +64,5 @@ function errorField($control) {
 
 function clearError($control) {
     let invalidControl = this.form.querySelector(`[name='${$control}']`)
-    invalidControl.nextSibling.textContent = ''
+    invalidControl.nextSibling ? invalidControl.nextSibling.textContent = '' : ''
 }
