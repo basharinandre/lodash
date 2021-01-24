@@ -16,7 +16,6 @@ export class AgreedComponent extends Component{
     }
 
     clickPostHandler() {
-        console.log('this.$el', this.$el)
         this.$el.addEventListener('click', e => {
             let el = e.target
             let btn = el.dataset.btn

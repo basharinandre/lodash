@@ -8,10 +8,12 @@ export class PostsComponent extends Component{
 
     onShow() {
        renderPosts.call(this)
+       this.refreshCounter()
     }
 
     init() {
         this.clickPostHandler()
+        this.cnt = this.$el.querySelector('.cnt--js')
     }
 
     clickPostHandler() {
@@ -25,12 +27,23 @@ export class PostsComponent extends Component{
             }
         })
     }
+
+    refreshCounter() {
+        let totalCnt = this.cnt.querySelector('.total--js')
+        let currentCnt = this.cnt.querySelector('.current-cnt--js')
+        
+        totalCnt.innerHTML = this.posts.length
+
+        const solutionsTasck = this.posts.filter(post => post.isFinished ? 1 : 0).length; 
+        currentCnt.innerHTML = solutionsTasck
+    }
 }
 
 function renderPosts() {
     let posts = JSON.parse(localStorage.getItem('posts')).reverse()
 
-    posts = posts.map(post => {
+    this.posts = posts
+    posts = this.posts.map(post => {
         let status = post.isFinished ? 
             `<span class="badge bg-success">Решена</span>` : 
             `<span class="badge bg-danger">Не решена</span>`
@@ -54,4 +67,5 @@ function renderPosts() {
     let boxPost = this.$el.querySelector('.posts--js')
     boxPost.innerHTML = ''
     boxPost.insertAdjacentHTML('afterbegin', posts)
+    this.refreshCounter()
 }

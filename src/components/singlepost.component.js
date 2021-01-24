@@ -24,7 +24,7 @@ class SinglePost{
         })
 
         input.addEventListener('input', () => {
-            toggleFinishedTasck(id)
+            toggleFinishedTasck(id, renderPosts, PostsComponent)
         })
     }
 }
@@ -95,10 +95,8 @@ function clickCloseHandler(e, renderPosts, PostsComponent) {
     renderPosts.call(PostsComponent)
 }
 
-function toggleFinishedTasck(id) {
-    console.log('id', +id)
+function toggleFinishedTasck(id, renderPosts, PostsComponent) {
     let posts = JSON.parse(localStorage.getItem('posts'))
-
 
     posts.find(post => {
         if (post.id === +id) {
