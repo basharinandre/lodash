@@ -49,7 +49,7 @@ function renderPosts() {
             `<span class="badge bg-danger">Не решена</span>`
 
         return `
-            <div class="card border-secondary mb-3" style="min-width: 320px;">
+            <div class="card border-secondary mb-3" >
                 <!-- <div class="card-header">Array</div> -->
                 <div class="card-body text-secondary">
                     Тип: <span class="badge bg-primary">${post.type}</span> <br>
