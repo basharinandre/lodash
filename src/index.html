@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Lodash</title>
     <!-- JS-библиотека -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
-    <script src="./stars.js"></script>
+
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 </head>
@@ -16,9 +15,9 @@
     <br>
     <div class="container">
         <div id="navigation" class="btn-group">
-            <a href="#" data-tab="create" class="tab-js btn btn-primary active" aria-current="page">Create Post</a>
-            <a href="#" data-tab="posts" class="tab-js btn btn-primary">Posts</a>
-            <a href="#" data-tab="agreed" class="tab-js btn btn-primary">Agreed</a>
+            <a href="#" data-tab="create" class="tab-js btn btn-primary active border-button" aria-current="page">Create Post</a>
+            <a href="#" data-tab="posts" class="tab-js btn btn-primary border-button">Posts</a>
+            <a href="#" data-tab="agreed" class="tab-js btn btn-primary border-button">Agreed</a>
         </div>
     </div>
     <br>
@@ -27,38 +26,37 @@
     <br>
 
     <div id="create-post" class="body__create create">
-        <form id="form">
+        <form id="form" class="ui-form">
             <div class="container">
                 <h1 class="text-center">Create Post</h1>
-                <div class="mb-3">
-                    <label for="title" class="form-label">
-                        Название метода 
-                        <span class="label-required">*</span>
-                    </label>
-
+                <div class="mb-3 form-row">
                     <input 
                         name="title"
                         data-control
                         type="text" 
+                        required autocomplete="off"
                         class="form-control" 
                         id="title" 
-                        placeholder="flattenDeep"
                     >
-                </div>
-
-                <div class="mb-3">
-                    <label for="link" class="form-label">
-                        Ссылка на метод Lodash
+                    <label for="title" class="form-label">
+                        Название метода 
                         <span class="label-required">*</span>
                     </label>
+                </div>
+
+                <div class="mb-3 form-row">
                     <input 
                         name="link"
                         data-control 
                         type="text"
+                        required autocomplete="off"
                         class="form-control" 
                         id="link" 
-                        placeholder="https://lodash.com/docs/4.17.15#flattenDeep"
-                        >
+                    >
+                    <label for="link" class="form-label">
+                        Ссылка на метод Lodash
+                        <span class="label-required">*</span>
+                    </label>
                 </div>
 
                 <div class="mb-3">
@@ -79,46 +77,49 @@
                     </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="example" class="form-label">Пример с Lodash (Пример работы метода)
-                        <span class="label-required">*</span>
-                    </label>
+                <div class="mb-3 form-row">
                     <textarea 
                         name="example"
                         data-control 
                         class="form-control" 
+                        required autocomplete="off"
                         id="example" 
                         rows="3"
                     ></textarea>
+                    <label for="example" class="form-label">Пример с Lodash (Пример работы метода)
+                        <span class="label-required">*</span>
+                    </label>
                 </div>
             </div>
 
             <hr>
 
             <div class="container" >
-                <div class="mb-3">
-                    <label for="polyfill" class="form-label">Полифилл
-                    </label>
+                <div class="mb-3 form-row">
                     <textarea
                         name="polyfill"
                         data-control 
+                        required autocomplete="off"
                         class="form-control" 
                         id="polyfill" 
                         rows="3"></textarea>
+                        <label for="polyfill" class="form-label">Полифилл
+                        </label>
                 </div>
 
-                <div class="mb-3">
-                    <label for="comment" class="form-label">Комментарий
-                    </label>
+                <div class="mb-3 form-row">
                     <textarea 
                         name="comment"
                         data-control 
                         class="form-control"
+                        required autocomplete="off"
                         id="comment" 
                         rows="3"></textarea>
+                        <label for="comment" class="form-label">Комментарий
+                        </label>
                 </div>
 
-                <button class="btn btn-danger" type="submit">
+                <button class="btn sliding-button" type="submit">
                     Отправить
                 </button>
             </div>
@@ -148,5 +149,8 @@
         </div>
 
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
+    <script src="/lodash/src/stars.js"></script>
 </body>
 </html>
